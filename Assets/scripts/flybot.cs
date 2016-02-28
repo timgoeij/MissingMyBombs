@@ -6,14 +6,14 @@ public class flybot : Mover {
 	float delay = 4f;
 	float delayTime;
 	CharacterController controller;
-	Animator animator;
+    Animation anim;
 
 	// Use this for initialization
 	public override void Start () {
 		base.Start();
 
 		controller = movable.GetComponent<CharacterController> ();
-		animator = movable.GetComponent<Animator> ();
+		anim = movable.GetComponent<Animation> ();
 	}
 	
 	// Update is called once per frame
@@ -35,10 +35,10 @@ public class flybot : Mover {
 		} 
 		
 		if (forward) {
-			animator.SetTrigger ("Walk");
+			anim.Play();
 			controller.SimpleMove (movable.TransformDirection (Vector3.forward) * speed);
 		} else
-			animator.Stop ();
+			anim.Stop ();
 
 		base.Update ();
 	}

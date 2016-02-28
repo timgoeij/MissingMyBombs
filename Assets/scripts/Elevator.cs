@@ -30,23 +30,23 @@ public class Elevator : MonoBehaviour {
         if (Tosafe) {
 			elevator.position = Vector3.MoveTowards(elevator.position, new Vector3(0, 50, 0), 0.1f);
 
-			if(Mathf.Round(elevator.position.y) > 50)
+			if(Mathf.Round(elevator.position.y) == 50)
 				Tosafe = false;
 
 		} else if (ToStage1) {
 			elevator.position = Vector3.MoveTowards(elevator.position, new Vector3(0, 0, 0), 0.1f);
-			if(Mathf.Round(elevator.position.y) < 0)
+			if(Mathf.Round(elevator.position.y) == 0)
 				ToStage1 = false;
 
 		} else if (ToStage2) {
 			elevator.position = Vector3.MoveTowards(elevator.position, new Vector3(0, -50, 0), 0.1f);
 
-			if(Mathf.Round(elevator.position.y) < -50)
+			if(Mathf.Round(elevator.position.y) == -50)
 				ToStage2 = false;
 		} else if (ToStage3) {
 			elevator.position = Vector3.MoveTowards(elevator.position, new Vector3(0, -100, 0), 0.1f);
 
-			if(Mathf.Round(elevator.position.y) < -100)
+			if(Mathf.Round(elevator.position.y) == -100)
 				ToStage3 = false;
 
 		}

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 
 	private List<Transform> bombList = new List<Transform>();
 
-	Animator animator;
+	Animation anim;
 
 	public Transform trigger;
 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 
 		player = this.transform;
 		controller = player.GetComponent<CharacterController> ();
-		animator = player.GetComponent<Animator> ();
+		anim = player.GetComponent<Animation> ();
 		startPos = player.position;
 	}
 	
@@ -81,9 +81,9 @@ public class Player : MonoBehaviour {
 		}
 
 		if (speed > 0)
-			animator.SetTrigger ("Walk");
+			anim.Play();
 		else
-			animator.Stop ();
+			anim.Stop();
 
 		controller.SimpleMove(player.TransformDirection(Vector3.forward) * speed);
 	}
